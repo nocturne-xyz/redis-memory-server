@@ -119,7 +119,10 @@ export default class RedisMemoryServer {
     /** Shortcut to this.opts.instance */
     const instOpts = this.opts.instance ?? {};
     const data: StartupInstanceData = {
-      port: await getPort({ port: instOpts.port ?? undefined }), // do (null or undefined) to undefined
+      // do (null or undefined) to undefined
+      port: await getPort({
+        port: instOpts.port ?? undefined,
+      }),
       ip: instOpts.ip ?? '127.0.0.1',
       tmpDir: undefined,
     };
